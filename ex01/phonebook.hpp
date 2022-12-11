@@ -6,7 +6,7 @@
 /*   By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 19:05:07 by bde-carv          #+#    #+#             */
-/*   Updated: 2022/12/10 20:05:40 by bde-carv         ###   ########.fr       */
+/*   Updated: 2022/12/11 20:32:38 by bde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@
 #include <iostream>
 #include <string>
 
+/*
+* class containing infos of a contact;
+* ~ marks the destructor function;
+*/
 class contact
-{
-
-	
+{	
 	public:
 		std::string first_name;
 		std::string last_name;
@@ -27,24 +29,32 @@ class contact
 		std::string nickname;
 		std::string secret;
 		contact(){};
+		~contact(){};
 };
 
+/*
+* class resembling the phonebook;
+* add() and search() are for taking the 
+* command from the user then giving it 
+* to the private functions for actual
+* execution of the command;
+*/
 class phonebook
 {
 	private:
 		contact persons[8];
 		int index;
 		void add_contact(int index);
-		void searchcontact(int index);
-		void searchdetail(int index);
+		void list_contacts(int index);
+		void search_contact(int index);
 	public:
-		phonebook()
-			index = 0;
-		~phonebook()
-			std::cout << "thanks for playing\n";
+		phonebook();
+		~phonebook();
 
 		void add();
 		void search();	
 };
+
+std::string shorten(std::string str);
 
 #endif
