@@ -5,18 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/12/11 19:17:45 by bde-carv          #+#    #+#              #
-#    Updated: 2022/12/11 20:31:41 by bde-carv         ###   ########.fr        #
+#    Created: 2022/12/09 18:39:40 by bde-carv          #+#    #+#              #
+#    Updated: 2022/12/12 18:44:04 by bde-carv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonebook
+NAME = megaphone
 
-CC = g++
-CFLAGS = -Wall -Werror -Wextra
-SRC	=	main.cpp \
-		phonebook.cpp \
-		phonebook_utils.cpp \
+CC = clang++
+CFLAGS = -Wall -Werror -Wextra -fsanitize=address
+SRC = megaphone.cpp
 
 RM = rm -f
 .PHONY = all clean re
