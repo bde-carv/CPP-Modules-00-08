@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombie.hpp                                         :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/13 15:31:25 by bde-carv          #+#    #+#             */
-/*   Updated: 2022/12/13 17:50:14 by bde-carv         ###   ########.fr       */
+/*   Created: 2022/12/14 19:40:46 by bde-carv          #+#    #+#             */
+/*   Updated: 2022/12/14 19:48:39 by bde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanA.hpp"
 
-#include <iostream>
-#include <iomanip>
-#include <unistd.h>
-#include <new>
-#include <string>
-
-class Zombie
+Weapon::Weapon(std::string weapon_type)
 {
-	private:
-		std::string name;
+	std::cout << weapon_type << " is spawning\n";
+	this->type = weapon_type;
+}
 
-	public:
-		Zombie(std::string name);
-		~Zombie(void);
-		void announce(void);
-		
-};
+Weapon::~Weapon(void)
+{
+	
+}
 
-Zombie *newZombie(std::string name);
-void randomChump(std::string name);
+const std::string &Weapon::getType()
+{
+	
+}
 
-#endif
+void Weapon::setType(std::string new_type)
+{
+	
+}
+
