@@ -6,21 +6,22 @@
 /*   By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 19:25:29 by bde-carv          #+#    #+#             */
-/*   Updated: 2022/12/14 19:57:45 by bde-carv         ###   ########.fr       */
+/*   Updated: 2022/12/15 16:53:00 by bde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANA_HPP
-# define HUMANA_HPP
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
 
 #include "Weapon.hpp"
 
 class HumanB
 {
 	public:
-		HumanB(std::string name);
+		HumanB(std::string hum_name);
 		~HumanB(void);
 		void attack(void);
+		void setWeapon(Weapon &new_weapon);
 
 	private:
 		std::string name;
