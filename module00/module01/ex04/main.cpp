@@ -6,7 +6,7 @@
 /*   By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 17:25:09 by bde-carv          #+#    #+#             */
-/*   Updated: 2022/12/16 18:26:54 by bde-carv         ###   ########.fr       */
+/*   Updated: 2022/12/16 19:41:13 by bde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,8 @@ int main(int ac, char **av)
 		if (!finput.eof())
 			fout << std::endl;
 	}
+
+	finput.close();
+	fout.close();
 	return (0);	
 }
