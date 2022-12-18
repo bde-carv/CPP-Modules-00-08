@@ -6,14 +6,14 @@
 #    By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/13 19:18:50 by bde-carv          #+#    #+#              #
-#    Updated: 2022/12/13 19:19:20 by bde-carv         ###   ########.fr        #
+#    Updated: 2022/12/18 19:47:39 by bde-carv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = zombie_horde
 
 CC = c++
-CFLAGS = -Wall -Werror -Wextra -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra -fsanitize=address -std=c++98
 SRC = main.cpp \
 		zombie.cpp \
 		zombieHorde.cpp \

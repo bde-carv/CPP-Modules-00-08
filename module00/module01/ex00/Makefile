@@ -6,14 +6,14 @@
 #    By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/09 18:39:40 by bde-carv          #+#    #+#              #
-#    Updated: 2022/12/13 18:13:48 by bde-carv         ###   ########.fr        #
+#    Updated: 2022/12/18 19:47:33 by bde-carv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = zombie
 
 CC = c++
-CFLAGS = -Wall -Werror -Wextra -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra -fsanitize=address -std=c++98
 SRC = main.cpp \
 		newZombie.cpp \
 		randomChump.cpp \
