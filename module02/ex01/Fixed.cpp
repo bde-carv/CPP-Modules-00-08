@@ -6,7 +6,7 @@
 /*   By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 20:12:04 by bde-carv          #+#    #+#             */
-/*   Updated: 2022/12/20 20:30:01 by bde-carv         ###   ########.fr       */
+/*   Updated: 2022/12/21 17:50:34 by bde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void Fixed::setFixedPoint(int raw)
 Fixed::Fixed (const float num_float)
 {
 	std::cout << "Float to fixedpoint constructor\n";
-	this->_fixedPoint = (int)roundf(num_float * 1 << this->_fract);
+	this->_fixedPoint = roundf(num_float * (1 << this->_fract));
 }
 
 /*
@@ -132,4 +132,21 @@ int Fixed::toInt(void) const
 	return (this->_fixedPoint >> this->_fract);
 }
 
-// overload of the insertion operator <<
+/*
+* overload of the insertion operator <<
+* whenever we have 1st param << 2nd param
+* this function will get called and thus
+* only the here defined memebrs will be printed
+* (toFloat);
+*
+* operator overloading functions must be global
+* they can be only implemented as a member function
+* if the left operand is inside the class 
+* (left operand and overload function must be in the
+* same class);
+*/
+std::ostream& operator <<(std::ostream &out, const Fixed &fixed)
+{
+	out << fixed.toFloat();
+	return (out);
+}

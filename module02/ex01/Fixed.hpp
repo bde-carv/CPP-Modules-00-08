@@ -6,7 +6,7 @@
 /*   By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 20:04:57 by bde-carv          #+#    #+#             */
-/*   Updated: 2022/12/20 20:24:57 by bde-carv         ###   ########.fr       */
+/*   Updated: 2022/12/21 17:53:33 by bde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FIXED_HPP
 
 # include <iostream>
+# include <cmath>
 
 
 class Fixed
@@ -35,5 +36,7 @@ class Fixed
 		float toFloat(void) const;
 		int toInt(void) const;
 };
+
+std::ostream& operator <<(std::ostream &out, const Fixed &fixed);
 
 #endif
