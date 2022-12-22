@@ -6,14 +6,14 @@
 #    By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/09 18:39:40 by bde-carv          #+#    #+#              #
-#    Updated: 2022/12/21 17:39:51 by bde-carv         ###   ########.fr        #
+#    Updated: 2022/12/22 19:22:53 by bde-carv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fixed_anotha
+NAME = fixed_1
 
 CC = clang++
-CFLAGS = -Wall -Werror -Wextra -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra -fsanitize=address -std=c++98
 SRC = Fixed.cpp \
 		main.cpp
 

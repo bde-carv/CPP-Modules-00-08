@@ -6,7 +6,7 @@
 /*   By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 20:12:04 by bde-carv          #+#    #+#             */
-/*   Updated: 2022/12/20 17:55:06 by bde-carv         ###   ########.fr       */
+/*   Updated: 2022/12/22 19:24:39 by bde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,10 @@ Fixed::~Fixed()
 * getter function: is for accessing private member attributes
 * of a class. 
 * every private member attribute should have their own getter;
+* const at the end ensures that the value of this class is not
+* changed;
 */
-int Fixed::getRawBits( void) const
+int Fixed::getRawBits(void) const
 {
 	std::cout << "getter function called\n";
 	return (this->_fixedPoint);
@@ -82,7 +84,7 @@ int Fixed::getRawBits( void) const
 * attributes of a class.
 * every private member should have their own setter;
 */
-void Fixed::setFixedPoint(int raw)
+void Fixed::setFixedPoint(int const raw)
 {
 	std::cout << "setter function called\n";
 	this->_fixedPoint = raw;

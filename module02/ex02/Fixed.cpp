@@ -6,7 +6,7 @@
 /*   By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 20:12:04 by bde-carv          #+#    #+#             */
-/*   Updated: 2022/12/21 18:05:18 by bde-carv         ###   ########.fr       */
+/*   Updated: 2022/12/22 19:33:47 by bde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ const int Fixed::_fract = 8;
 Fixed::Fixed(void)
 {
 	this->_fixedPoint = 0;
-	std::cout << "Default constructor called\n";
+	//std::cout << "Default constructor called\n";
 }
 
 /*
@@ -42,7 +42,7 @@ Fixed::Fixed(void)
 */
 Fixed::Fixed(Fixed const & obj)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
 {
-	std::cout << "Copy constructor called\n";
+	//std::cout << "Copy constructor called\n";
 	this->_fixedPoint = obj.getRawBits();
 	
 }
@@ -55,7 +55,7 @@ Fixed::Fixed(Fixed const & obj)
 */
 Fixed& Fixed::operator=(Fixed const & obj)
 {
-	std::cout << "Assigment constructor called\n";
+	//std::cout << "Assigment constructor called\n";
 	this->_fixedPoint = obj.getRawBits();
 	
 	return (*this);
@@ -63,7 +63,7 @@ Fixed& Fixed::operator=(Fixed const & obj)
 
 Fixed::~Fixed()
 {
-	std::cout << "destructor called\n";
+	//std::cout << "destructor called\n";
 }
 
 /*
@@ -75,7 +75,7 @@ Fixed::~Fixed()
 */
 int Fixed::getRawBits( void) const
 {
-	std::cout << "getter function called\n";
+	//std::cout << "getter function called\n";
 	return (this->_fixedPoint);
 }
 
@@ -84,13 +84,11 @@ int Fixed::getRawBits( void) const
 * attributes of a class.
 * every private member should have their own setter;
 */
-void Fixed::setFixedPoint(int raw)
+void Fixed::setRawBits(int raw)
 {
-	std::cout << "setter function called\n";
+	//std::cout << "setter function called\n";
 	this->_fixedPoint = raw;
 }
-
-/* new */
 
 /*
 * constructor that takes a float converts it to 
@@ -102,7 +100,7 @@ void Fixed::setFixedPoint(int raw)
 */
 Fixed::Fixed (const float num_float)
 {
-	std::cout << "Float to fixedpoint constructor\n";
+	//std::cout << "Float to fixedpoint constructor\n";
 	this->_fixedPoint = roundf(num_float * (1 << this->_fract));
 }
 
@@ -112,7 +110,7 @@ Fixed::Fixed (const float num_float)
 */
 Fixed::Fixed(const int num_int)
 {
-	std::cout << "int to fixedpoint constructor\n";
+	//std::cout << "int to fixedpoint constructor\n";
 	this->_fixedPoint = num_int << this->_fract;
 } 
 
@@ -149,4 +147,154 @@ std::ostream& operator <<(std::ostream &out, const Fixed &fixed)
 {
 	out << fixed.toFloat();
 	return (out);
+}
+
+// ==, !=, <, >, >=, <=
+
+/*
+* returns a bool (true/false) based on if the
+* condition in the return() is true or not;
+* const at end because we just compare and
+* dont modify in this function;
+*/
+bool Fixed::operator==(const Fixed &a) const
+{
+	return (this->_fixedPoint == a.getRawBits());
+}
+
+bool Fixed::operator!=(const Fixed &a) const
+{
+	return (this->_fixedPoint != a.getRawBits());
+}
+
+bool Fixed::operator>(const Fixed &a) const
+{
+	return (this->_fixedPoint > a.getRawBits());
+}
+
+bool Fixed::operator>=(const Fixed &a) const
+{
+	return (this->_fixedPoint >= a.getRawBits());
+}
+
+bool Fixed::operator<=(const Fixed &a) const
+{
+	return (this->_fixedPoint <= a.getRawBits());
+}
+
+bool Fixed::operator<(const Fixed &a) const
+{
+	return (this->_fixedPoint < a.getRawBits());
+}
+
+// +,-,*,/
+
+Fixed Fixed::operator+(const Fixed &a)
+{
+	Fixed b;
+	
+	b.setRawBits(this->getRawBits() + a.getRawBits());
+	return (b);
+}
+
+Fixed Fixed::operator-(const Fixed &a)
+{
+	Fixed b;
+
+	b.setRawBits(this->toFloat() - a.toFloat());
+	return (b);
+}
+
+Fixed Fixed::operator*(const Fixed &a)
+{
+	Fixed b;
+
+	//b.setRawBits(this->getRawBits() * a.getRawBits());
+	//b.setRawBits(this->toFloat() * a.toFloat());
+	return (Fixed(this->toFloat() * a.toFloat()));
+	//return (b);
+}
+
+Fixed Fixed::operator/(const Fixed &a)
+{
+	Fixed b;
+
+	//b.setRawBits(this->getRawBits() / a.getRawBits());
+	return (Fixed(this->toFloat() / a.toFloat()));
+	return (b);
+}
+
+/*
+* pre
+*/
+Fixed& Fixed::operator++(void)
+{
+	this->_fixedPoint++;
+	return (*this);
+}
+
+/*
+* pre
+*/
+Fixed& Fixed::operator--(void)
+{
+	this->_fixedPoint--;
+	return (*this);
+}
+
+/*
+* int dummy for differentiating
+* between post/pre increment since
+* they have the same operator;
+* post
+*/
+Fixed Fixed::operator--(int dummy)
+{
+	(void)dummy;
+	Fixed tmp(*this);
+	 this->_fixedPoint--;
+	return (tmp);
+}
+
+/*
+* post
+*/
+Fixed Fixed::operator++(int dummy)
+{
+	(void)dummy;
+	Fixed tmp(*this);
+	this->_fixedPoint++;
+	return (tmp);
+}
+
+Fixed& Fixed::min(Fixed &a, Fixed &b)
+{
+	if (a.getRawBits() < b.getRawBits())
+		return (a);
+	else
+		return (b);
+}
+
+const Fixed& Fixed::min(const Fixed &a, const Fixed &b)
+{
+	if (a.getRawBits() < b.getRawBits())
+		return (a);
+	else
+		return (b);
+}
+
+Fixed& Fixed::max(Fixed &a, Fixed &b)
+{
+	if (a.getRawBits() > b.getRawBits())
+		return (a);
+	else
+		return (b);
+}
+
+const Fixed& Fixed::max(const Fixed &a, const Fixed &b)
+{
+	if (a.getRawBits() > b.getRawBits())
+		return (a);
+	else
+		return (b);
 }
