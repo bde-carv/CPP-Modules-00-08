@@ -6,7 +6,7 @@
 /*   By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 17:10:52 by bde-carv          #+#    #+#             */
-/*   Updated: 2022/12/25 19:22:38 by bde-carv         ###   ########.fr       */
+/*   Updated: 2022/12/26 15:48:17 by bde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 // CONSTRUCTORS
 ClapTrap::ClapTrap(void) : _name("Shadow Ghost"), _HP(10), _EP(10), _AD(0)
 {
-	std::cout << "void constructor: ";
-	std::cout << this->_name << " appears!\n";
+	std::cout << "[void constructor]: ";
+	std::cout << "a mysterious " << this->_name << " appears!\n";
 }
 
 /*
-* constructor
+* default constructor taking a string as parameter;
 */
 ClapTrap::ClapTrap(std::string new_name)
 {
@@ -28,8 +28,14 @@ ClapTrap::ClapTrap(std::string new_name)
 	this->_HP = 10;
 	this->_EP = 10;
 	this->_AD = 0;
-	std::cout << "string constructor: ";
-	std::cout << this->_name << " has been summoned\n";
+	std::cout << "[string constructor]: ";
+	if (this->_name.compare("Glumanda") == 0)
+		std::cout << this->_name << " I choose you!\n";
+	else
+	{
+		//std::cout << "its a Pikachu!\n";
+		std::cout << this->_name << ": Grrrroooaaarrr!\n";
+	}
 }
 
 /*
@@ -44,7 +50,7 @@ ClapTrap::ClapTrap(ClapTrap const &obj)
 	this->_EP = obj.get_EP();
 	this->_HP = obj.get_HP();
 
-	std::cout << "copy constructor: " << "cloning instance\n";
+	std::cout << "[copy constructor]: " << "its a Pikachu!\n";
 	
 }
 
@@ -54,7 +60,7 @@ ClapTrap::ClapTrap(ClapTrap const &obj)
 */
 ClapTrap& ClapTrap::operator=(ClapTrap const &obj)
 {
-	std::cout << "assignment constructor: " << "taking over values\n";
+	std::cout << "[assignment constructor]: " << "Shadow Pikachu powers up!\n";
 	this->_name = obj.get_name();
 	this->_AD = obj.get_AD();
 	this->_EP = obj.get_EP();
@@ -65,7 +71,10 @@ ClapTrap& ClapTrap::operator=(ClapTrap const &obj)
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "destructor: " << this->get_name() << " is finished\n"; 
+	if (this->_name.compare("Shadow Pikachu") == 0)
+		std::cout << "[destructor]: " << this->get_name() << " is finished\n";
+	else
+		std::cout << "[destructor]:" << this->_name << " come back!\n";
 }
 
 // METHODS
@@ -83,7 +92,7 @@ void ClapTrap::attack(const std::string& target)
 	else
 	{
 		std::cout << this->_name << " attacks ";
-		std::cout << target << " causing " << this->_AD << std::endl;
+		std::cout << target << " causing " << this->_AD << " damage" << std::endl;
 
 		this->_EP--;
 	}
@@ -116,7 +125,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 	}
 	else
 	{
-		std::cout << this->_name << " uses grace of gods to heal by " << amount << "points\n";
+		std::cout << this->_name << " uses grace of gods to heal by " << amount << " points\n";
 		this->_EP--;
 	}
 }
