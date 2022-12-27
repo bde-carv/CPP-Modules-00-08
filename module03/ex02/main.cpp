@@ -6,42 +6,57 @@
 /*   By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 17:41:06 by bde-carv          #+#    #+#             */
-/*   Updated: 2022/12/26 15:51:14 by bde-carv         ###   ########.fr       */
+/*   Updated: 2022/12/27 20:00:50 by bde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
-	std::cout << "constructors: \n";
-	ClapTrap Glumanda("Glumanda"); // string constructor
-	ClapTrap shadow_pika; //void constructor
-	ClapTrap Glumanda_clone(Glumanda); // copy constructor
-	ClapTrap S_Pikachu("Shadow Pikachu"); // string constructor 
-	shadow_pika = S_Pikachu; // + assignment constructor
-	std::cout << "constructors end\n";
+	// Constructors
+	std::cout << std::endl;
+	FragTrap frag1("Fighter");
+	FragTrap frag2("Monster");
+	/*ScavTrap trap3(trap1);*/
+	FragTrap frag3;
+	frag3 = frag1;
+	FragTrap frag4(frag2);
+
+	std::cout << std::endl;
+
+	// frag1 test
+	frag1.attack("Puppet");
+	frag1.takeDamage(90);
+	frag1.beRepaired(10);
+	frag1.highFivesGuys();
+
+	std::cout << std::endl;
+
+	// frag2 test
+	frag2.attack("Puppet");
+	frag2.takeDamage(50);
+	frag2.beRepaired(22);
+	frag2.highFivesGuys();
+	
+	std::cout << std::endl;
+
+	// frag3 Fighter clone test
+	frag3.attack("Puppet");
+	frag3.takeDamage(50);
+	frag3.beRepaired(10);
+	frag3.highFivesGuys();
+
 	std::cout << std::endl;
 	
-	std::cout << "[Test 1]: attack, damage, heal\n";
-	shadow_pika.attack("Glumanda");
-	Glumanda.takeDamage(2);
-	Glumanda.beRepaired(2);
-	std::cout << std::endl;
-
-	std::cout << "[Test 2]: HP already 0\n";
-	Glumanda.attack("Shadow Pikachu");
-	shadow_pika.takeDamage(10);
-	std::cout << "Glumanda falls into rage\n";
-	std::cout << "Glumanda's attack velocity increases!\n";
-	Glumanda.attack("Shadow Pikachu");
-	shadow_pika.takeDamage(10);
-	shadow_pika.attack("Glumanda");
-	shadow_pika.beRepaired(5);
+	// frag4 Monster clone test
+	frag4.attack("Puppet");
+	frag4.takeDamage(50);
+	frag4.beRepaired(10);
+	frag4.highFivesGuys();
 
 	std::cout << std::endl;
-
-	
-
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 17:41:06 by bde-carv          #+#    #+#             */
-/*   Updated: 2022/12/27 17:10:03 by bde-carv         ###   ########.fr       */
+/*   Updated: 2022/12/26 16:13:25 by bde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,38 +15,34 @@
 
 int main()
 {
-	// Constructors
+	std::cout << "constructors: \n";
+	ClapTrap Glumanda("Glumanda"); // string constructor
+	ClapTrap shadow_pika; //void constructor
+	ClapTrap Glumanda_clone(Glumanda); // copy constructor
+	ClapTrap S_Pikachu("Shadow Pikachu"); // string constructor 
+	shadow_pika = S_Pikachu; // + assignment constructor
+	std::cout << "constructors end\n";
 	std::cout << std::endl;
-	ScavTrap trap1("Dragon");
-	ScavTrap trap2("Green-Knight");
-	/*ScavTrap trap3(trap1);*/
-	ScavTrap trap3;
-	trap3 = trap1;
-
-	std::cout << std::endl;
-
-	// trap1 test
-	trap1.attack("Puppet");
-	trap1.takeDamage(90);
-	trap1.beRepaired(10);
-	trap1.guardGate();
-
-	std::cout << std::endl;
-
-	// trap2 test
-	trap2.attack("Puppet");
-	trap2.takeDamage(50);
-	trap2.beRepaired(22);
-	trap2.guardGate();
 	
+	std::cout << "[Test 1]: attack, damage, heal\n";
+	shadow_pika.attack("Glumanda");
+	Glumanda.takeDamage(2);
+	Glumanda.beRepaired(2);
 	std::cout << std::endl;
 
-	// trap3 Dragon clone test
-	trap3.attack("Puppet");
-	trap3.takeDamage(50);
-	trap3.beRepaired(10);
-	trap3.guardGate();
+	std::cout << "[Test 2]: HP already 0\n";
+	Glumanda.attack("Shadow Pikachu");
+	shadow_pika.takeDamage(10);
+	std::cout << "Glumanda falls into rage\n";
+	std::cout << "Glumanda's attack velocity increases!\n";
+	Glumanda.attack("Shadow Pikachu");
+	shadow_pika.takeDamage(10);
+	shadow_pika.attack("Glumanda");
+	shadow_pika.beRepaired(5);
 
 	std::cout << std::endl;
+
+	
+
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 17:10:52 by bde-carv          #+#    #+#             */
-/*   Updated: 2022/12/27 17:03:36 by bde-carv         ###   ########.fr       */
+/*   Updated: 2022/12/27 19:44:33 by bde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,17 +85,14 @@ void ClapTrap::attack(const std::string& target)
 {
 	if (this->_HP == 0)
 	{
-		std::cout << "PROOF NO CLAPTRAP";
 		std::cout << this->_name << " cant attack: 0 HP left\n";
 	}
 	else if (this->_EP == 0)
 	{
-		std::cout << "PROOF NO CLAPTRAP";
 		std::cout << this->_name << " can't attack: 0 EP left\n";
 	}
 	else
 	{
-		std::cout << "PROOF NO CLAPTRAP";
 		std::cout << this->_name << " attacks ";
 		std::cout << target << " causing " << this->_AD << " damage" << std::endl;
 
