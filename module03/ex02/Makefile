@@ -6,11 +6,11 @@
 #    By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/09 18:39:40 by bde-carv          #+#    #+#              #
-#    Updated: 2022/12/27 18:19:59 by bde-carv         ###   ########.fr        #
+#    Updated: 2022/12/28 16:49:21 by bde-carv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ClapTrap_2
+NAME = FragTrap
 
 CC = clang++
 CFLAGS = -Wall -Werror -Wextra -fsanitize=address -std=c++98

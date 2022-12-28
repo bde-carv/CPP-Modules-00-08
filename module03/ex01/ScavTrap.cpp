@@ -6,7 +6,7 @@
 /*   By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 16:13:56 by bde-carv          #+#    #+#             */
-/*   Updated: 2022/12/27 17:04:13 by bde-carv         ###   ########.fr       */
+/*   Updated: 2022/12/28 18:00:08 by bde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 ScavTrap::ScavTrap(void) : ClapTrap()
 {
+	this->_name = "default";
 	this->_AD = 20;
 	this->_EP = 50;
 	this->_HP = 100;
@@ -36,6 +37,7 @@ ScavTrap::ScavTrap(std::string new_name) : ClapTrap(new_name)
 ScavTrap::ScavTrap(const ScavTrap &obj) : ClapTrap()
 {
 	*this = obj;
+	this->_name = this->_name;
 	std::cout << "ScavTrap Copy constructor:" << this->_name << std::endl;
 }
 
@@ -46,9 +48,11 @@ ScavTrap& ScavTrap::operator=(const ScavTrap &obj)
 	// this->_AD = obj.get_AD();
 	// this->_HP = obj.get_HP();
 
+
 	ClapTrap::operator=(obj);
 
-	std::cout << "ScavTrap Assignment Constructor\n";
+	std::cout << "[ScavTrap Assignment Constructor:]";
+	std::cout << this->_name << std::endl;
 	
 	return (*this);
 }

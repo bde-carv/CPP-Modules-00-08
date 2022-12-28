@@ -6,7 +6,7 @@
 /*   By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 17:41:06 by bde-carv          #+#    #+#             */
-/*   Updated: 2022/12/27 17:10:03 by bde-carv         ###   ########.fr       */
+/*   Updated: 2022/12/28 18:18:37 by bde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ int main()
 	std::cout << std::endl;
 	ScavTrap trap1("Dragon");
 	ScavTrap trap2("Green-Knight");
-	/*ScavTrap trap3(trap1);*/
-	ScavTrap trap3;
-	trap3 = trap1;
+	ScavTrap trap3(trap1);
+	// ScavTrap trap3;
+	// trap3 = trap1;
+	ScavTrap trap4 = trap2;
 
 	std::cout << std::endl;
 
@@ -46,6 +47,14 @@ int main()
 	trap3.takeDamage(50);
 	trap3.beRepaired(10);
 	trap3.guardGate();
+
+	std::cout << std::endl;
+
+	// trap4
+	trap4.attack("Puppet");
+	trap4.takeDamage(20);
+	trap4.beRepaired(80);
+	trap4.guardGate();
 
 	std::cout << std::endl;
 	return (0);

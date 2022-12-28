@@ -6,7 +6,7 @@
 /*   By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 17:33:13 by bde-carv          #+#    #+#             */
-/*   Updated: 2022/12/27 20:01:35 by bde-carv         ###   ########.fr       */
+/*   Updated: 2022/12/28 18:21:17 by bde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ FragTrap::FragTrap(void) : ClapTrap()
 FragTrap::FragTrap(const FragTrap &obj) : ClapTrap()
 {
 	*this = obj;
-	this->_name = this->_name + "_clone";
+	this->_name = this->_name /*+ "_clone"*/;
 	std::cout << "[FragTrap copy constructor]\n";
 }
 
@@ -47,7 +47,7 @@ FragTrap::FragTrap(std::string new_name) : ClapTrap()
 
 FragTrap::~FragTrap(void)
 {
-	std::cout << "[FragTrap deconstructor]\n";
+	std::cout << "[FragTrap deconstructor]:" << this->_name << std::endl;
 }
 
 // Methods

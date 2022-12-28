@@ -6,7 +6,7 @@
 /*   By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 17:10:52 by bde-carv          #+#    #+#             */
-/*   Updated: 2022/12/27 17:03:36 by bde-carv         ###   ########.fr       */
+/*   Updated: 2022/12/28 17:49:29 by bde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ ClapTrap::ClapTrap(std::string new_name)
 	this->_EP = 10;
 	this->_AD = 0;
 	std::cout << "ClapTrap:[string constructor]: ";
-	if (this->_name.compare("Glumanda") == 0)
+	if (this->_name.compare("Charmander") == 0)
 		std::cout << this->_name << " I choose you!\n";
 	else
 	{
@@ -63,7 +63,7 @@ ClapTrap& ClapTrap::operator=(ClapTrap const &obj)
 {
 	// std::cout << "ClapTrap:[assignment constructor]: " << "Shadow Pikachu powers up!\n";
 	std::cout << "ClapTrap:[assignment constructor]: " << std::endl;
-	this->_name = obj.get_name();
+	this->_name = obj.get_name() + "_clone";
 	this->_AD = obj.get_AD();
 	this->_EP = obj.get_EP();
 	this->_HP = obj.get_HP();

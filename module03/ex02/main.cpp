@@ -6,7 +6,7 @@
 /*   By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 17:41:06 by bde-carv          #+#    #+#             */
-/*   Updated: 2022/12/27 20:00:50 by bde-carv         ###   ########.fr       */
+/*   Updated: 2022/12/28 16:57:30 by bde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,15 @@ int main()
 
 	std::cout << std::endl;
 
-	// frag1 test
+	// frag1 Fighter test
 	frag1.attack("Puppet");
-	frag1.takeDamage(90);
+	frag1.takeDamage(170);
 	frag1.beRepaired(10);
 	frag1.highFivesGuys();
 
 	std::cout << std::endl;
 
-	// frag2 test
+	// frag2 Monster test
 	frag2.attack("Puppet");
 	frag2.takeDamage(50);
 	frag2.beRepaired(22);

@@ -6,7 +6,7 @@
 /*   By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 17:03:04 by bde-carv          #+#    #+#             */
-/*   Updated: 2022/12/26 17:52:48 by bde-carv         ###   ########.fr       */
+/*   Updated: 2022/12/28 17:45:50 by bde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class ClapTrap
 {
-	private:
+	protected:
 		std::string _name;
 		int _HP;
 		int _EP;

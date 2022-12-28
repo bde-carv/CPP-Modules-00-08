@@ -6,7 +6,7 @@
 /*   By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 17:10:52 by bde-carv          #+#    #+#             */
-/*   Updated: 2022/12/26 19:15:04 by bde-carv         ###   ########.fr       */
+/*   Updated: 2022/12/28 17:34:39 by bde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,16 @@ ClapTrap::ClapTrap(std::string new_name)
 	this->_EP = 10;
 	this->_AD = 0;
 	std::cout << "[string constructor]: ";
-	if (this->_name.compare("Glumanda") == 0)
+	if (this->_name.compare("Charmander") == 0)
+	{
+
 		std::cout << this->_name << " I choose you!\n";
+	}
 	else
 	{
-		//std::cout << "its a Pikachu!\n";
-		std::cout << this->_name << ": Grrrroooaaarrr!\n";
+		// std::cout << this->_name << " reveals its true form!\n";
+		std::cout << "A Pikachu comes out of the grass!\n";
+		std::cout << this->_name << ": Pika Pikaaachuuu!\n";
 	}
 }
 
@@ -45,12 +49,12 @@ ClapTrap::ClapTrap(std::string new_name)
 ClapTrap::ClapTrap(ClapTrap const &obj)
 {
 	
-	this->_name = obj.get_name();
+	this->_name = obj.get_name() + "_clone";
 	this->_AD = obj.get_AD();
 	this->_EP = obj.get_EP();
 	this->_HP = obj.get_HP();
 
-	std::cout << "[copy constructor]: " << "its a Pikachu!\n";
+	std::cout << "[copy constructor]: " << this->_name << " was cloned by cheat-modul\n";
 	
 }
 
@@ -60,18 +64,19 @@ ClapTrap::ClapTrap(ClapTrap const &obj)
 */
 ClapTrap& ClapTrap::operator=(ClapTrap const &obj)
 {
-	std::cout << "[assignment constructor]: " << "Shadow Pikachu powers up!\n";
-	this->_name = obj.get_name();
+	std::cout << "[assignment constructor]: " << this->_name << " absorbs " << " Pikachu!\n";
+	this->_name = obj.get_name() + "_absorbed";
 	this->_AD = obj.get_AD();
 	this->_EP = obj.get_EP();
 	this->_HP = obj.get_HP();
 
+	std::cout << this->_name << ": Grrrrrooooaaar!\n";
 	return (*this);
 }
 
 ClapTrap::~ClapTrap(void)
 {
-	if (this->_name.compare("Shadow Pikachu") == 0)
+	if ((this->_name.compare("Pikachu")) == 0 || (this->_name.compare("Pikachu_absorbed") == 0))
 		std::cout << "[destructor]: " << this->get_name() << " is finished\n";
 	else
 		std::cout << "[destructor]:" << this->_name << " come back!\n";
@@ -106,7 +111,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 	}
 	else if ((this->_HP - (int)amount) >= 0)
 	{
-		std::cout << this->_name << " takes " << amount << " damage\n";
+		std::cout << this->_name << " takes " << amount << " damage from sandstorm\n";
 		this->_HP -= amount;
 		std::cout << this->_name << " has " << this->_HP << " HP left\n";
 	}
