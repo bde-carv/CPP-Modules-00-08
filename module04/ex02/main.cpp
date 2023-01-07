@@ -6,7 +6,7 @@
 /*   By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 21:13:18 by bde-carv          #+#    #+#             */
-/*   Updated: 2023/01/07 18:04:48 by bde-carv         ###   ########.fr       */
+/*   Updated: 2023/01/07 18:15:34 by bde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main()
 {
 	int i;
 	Animal *animal_array[4];
-
+	//Animal test;
 	// Dog basic;
 	// Dog tmp = basic;
 	
