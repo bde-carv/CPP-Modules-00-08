@@ -6,7 +6,7 @@
 /*   By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 18:24:18 by bde-carv          #+#    #+#             */
-/*   Updated: 2023/01/08 19:57:16 by bde-carv         ###   ########.fr       */
+/*   Updated: 2023/01/09 19:29:24 by bde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj)
 {
 	std::cout << "Bureaucrat assignment constructor\n";
 	this->_grade = obj.getGrade();
-	this->_name = obj.getName();
+	//this->_name = obj.getName();
 
 	return (*this);
 }
@@ -62,18 +62,60 @@ Bureaucrat::~Bureaucrat()
 
 void Bureaucrat::increment_grade()
 {
-	this->_grade = this->_grade - 1;
+	try
+	{
+		if (this->_grade == 1)
+		{
+			throw Bureaucrat::GradeTooHighException();
+		}
+		else
+			this->_grade += - 1;
+	}
+	catch (const std::exception &exc)
+	{
+		std::cout << "cant increment\n";
+		std::cout << exc.what();
+	}
 
-	if (this->getGrade() > 150)
-		throw Bureaucrat::GradeTooHighException();
+	//this->_grade = this->_grade - 1;
+
+	// if (this->getGrade() > 150)
+	// 	throw Bureaucrat::GradeTooHighException();
+
+	// if (this->getGrade() == 1)
+	// 	throw Bureaucrat::GradeTooHighException();
+	// else
+	// 	this->_grade = this->_grade - 1;
 }
 
 void Bureaucrat::decrement_grade()
 {
-	this->_grade = this->_grade + 1;
+	try
+	{
+		if (this->_grade == 150)
+		{
+			throw Bureaucrat::GradeTooLowException();
+		}
+		else
+			this->_grade += + 1;
+	}
+	catch (const std::exception &excep)
+	{
+		std::cout << "can't decrement\n";
+		std::cout << excep.what() << std::endl;
+	}
+		
+	// 	std::cout << excep.what();
+	// }
+	// this->_grade = this->_grade + 1;
 
-	if (this->getGrade() < 1)
-		throw Bureaucrat::GradeTooLowException();
+	// if (this->getGrade() < 1)
+	// 	throw Bureaucrat::GradeTooLowException();
+
+	// if (this->getGrade() == 150)
+	// 	throw Bureaucrat::GradeTooLowException();
+	// else
+	// 	this->_grade += +1;
 }
 
 std::string Bureaucrat::getName() const

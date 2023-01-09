@@ -6,7 +6,7 @@
 /*   By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 18:24:24 by bde-carv          #+#    #+#             */
-/*   Updated: 2023/01/08 20:10:28 by bde-carv         ###   ########.fr       */
+/*   Updated: 2023/01/08 20:54:44 by bde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 class Bureaucrat
 {
 	private:
-		 std::string _name;
+		const std::string _name;
 		int _grade;
 	
 	public:
