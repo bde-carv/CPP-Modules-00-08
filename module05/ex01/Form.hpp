@@ -6,7 +6,7 @@
 /*   By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:39:23 by bde-carv          #+#    #+#             */
-/*   Updated: 2023/01/10 20:58:58 by bde-carv         ###   ########.fr       */
+/*   Updated: 2023/01/10 21:43:05 by bde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,6 @@ class Form
 		};
 };
 
-std::ostream& operator<<(std::ostream COUT, Form& obj);
+std::ostream& operator<<(std::ostream& COUT, Form& obj);
 
 #endif

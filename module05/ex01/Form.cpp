@@ -6,7 +6,7 @@
 /*   By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 21:09:11 by bde-carv          #+#    #+#             */
-/*   Updated: 2023/01/10 20:55:38 by bde-carv         ###   ########.fr       */
+/*   Updated: 2023/01/10 21:41:50 by bde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,9 +107,7 @@ void Form::beSigned(Bureaucrat& bur)
 	// }
 }
 
-
 // << overloading
-
 std::ostream& operator<<(std::ostream& COUT, Form& obj)
 {
 	std::cout << "Name of form: " << obj.getName() << std::endl;

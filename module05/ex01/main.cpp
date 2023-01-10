@@ -6,7 +6,7 @@
 /*   By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 18:24:26 by bde-carv          #+#    #+#             */
-/*   Updated: 2023/01/10 21:11:32 by bde-carv         ###   ########.fr       */
+/*   Updated: 2023/01/10 21:46:19 by bde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int main()
 	Bureaucrat Gal("Gal", 9);
 	std::cout << std::endl;
 	
-
 	std::cout << std::endl;
 	std::cout << "[Form with grades too low/high]" << std::endl;
 	std::cout << std::endl;
@@ -27,6 +26,7 @@ int main()
 	Form form2("Form_two", 5, 151);
 	Form form3("Form_three", 0, 5);
 	Form form4("Form_four", 5, 0);
+	Form& ref_form4 = form4;
 	std::cout << std::endl;
 	
 	std::cout << std::endl;
@@ -50,13 +50,11 @@ int main()
 	Jon.signForm(ref_form6);
 	std::cout << std::endl;
 
-	// std::cout << std::endl;
-	// std::cout << "[<< operator overload]\n";
-	// std::cout << ref_form5 << std::endl;
+	std::cout << std::endl;
+	std::cout << "[<< operator overload]\n";
+	std::cout << ref_form5 << std::endl;
+	std::cout << ref_form4 << std::endl;
 
-	
-
-	
 	std::cout << "[Destructors]" << std::endl;
 	std::cout << std::endl;
 	return (0);
