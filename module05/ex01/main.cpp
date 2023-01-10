@@ -6,7 +6,7 @@
 /*   By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 18:24:26 by bde-carv          #+#    #+#             */
-/*   Updated: 2023/01/10 20:52:49 by bde-carv         ###   ########.fr       */
+/*   Updated: 2023/01/10 21:11:32 by bde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,34 +31,33 @@ int main()
 	
 	std::cout << std::endl;
 	std::cout << "[creating ok Forms]" << std::endl;
+	std::cout << std::endl;
 	Form form5("Form_five", 15, 16);
 	Form& ref_form5 = form5;
 	Form form6("Form_six", 7, 2);
 	Form& ref_form6 = form6;
-
-	Form form7;
-	const Form& ref_form7 = form7;
-	Form form8(ref_form7);
-	
 	std::cout << std::endl;
 
 	std::cout << std::endl;
 	std::cout << "[Signing ok]" << std::endl;
+	std::cout << std::endl;
 	Jon.signForm(ref_form5);
 	std::cout << std::endl;
 	
 	std::cout << std::endl;
 	std::cout << "[Signing not ok]" << std::endl;
+	std::cout << std::endl;
 	Jon.signForm(ref_form6);
 	std::cout << std::endl;
 
-	std::cout << std::endl;
-	std::cout << "[<< operator overload]\n";
-	std::cout << ref_form5 << std::endl;
+	// std::cout << std::endl;
+	// std::cout << "[<< operator overload]\n";
+	// std::cout << ref_form5 << std::endl;
 
 	
 
 	
 	std::cout << "[Destructors]" << std::endl;
+	std::cout << std::endl;
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 18:24:18 by bde-carv          #+#    #+#             */
-/*   Updated: 2023/01/10 20:37:16 by bde-carv         ###   ########.fr       */
+/*   Updated: 2023/01/10 21:09:23 by bde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,11 +139,11 @@ void Bureaucrat::signForm(Form& form)
 	try
 	{
 		form.beSigned(*this);
+		std::cout << "[signForm]: " << this->getName() << " signed " << form.getName() << std::endl;
 	}
 	catch (std::exception& except)
 	{
 		std::cout << this->getName() << " couldn't sign " << form.getName() << " because ";
 		std::cout << except.what() << std::endl;
 	}
-	std::cout << "[signForm]: " << this->getName() << " signed " << form.getName() << std::endl;
 }
