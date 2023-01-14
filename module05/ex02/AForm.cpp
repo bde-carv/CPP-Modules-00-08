@@ -1,50 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 21:09:11 by bde-carv          #+#    #+#             */
-/*   Updated: 2023/01/14 19:15:03 by bde-carv         ###   ########.fr       */
+/*   Updated: 2023/01/14 19:28:39 by bde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
 // canonical form 
-Form::Form() : _name("default"), _signed(false), _grade_sign(0) , _grade_exec(0)
+AForm::AForm() : _name("default"), _signed(false), _grade_sign(0) , _grade_exec(0)
 {
-	std::cout << "Form void constructor: " << this->getName() << std::endl;
+	std::cout << "AForm void constructor: " << this->getName() << std::endl;
 }
 
-Form::Form (const Form& obj) : _name(obj._name), _signed(false), _grade_sign(obj._grade_sign), _grade_exec(obj._grade_exec)
+AForm::AForm (const AForm& obj) : _name(obj._name), _signed(false), _grade_sign(obj._grade_sign), _grade_exec(obj._grade_exec)
 {
-	std::cout << "Form copy constructor\n";
+	std::cout << "AForm copy constructor\n";
 	*this = obj;
 }
 
-Form& Form::operator=(const Form& obj)
+AForm& AForm::operator=(const AForm& obj)
 {
 	std::cout << "Form assignment constructor\n";
 	this->_signed = obj.getSigning();
 	return(*this);
 }
 
-Form::Form(std::string _name, const int _grade_sign, const int _grade_exec) : \
+AForm::AForm(std::string _name, const int _grade_sign, const int _grade_exec) : \
 			_name(_name), _signed(false), _grade_sign(_grade_sign), _grade_exec(_grade_exec)
 {
-	std::cout << "Form custom constructor: " << this->getName() << std::endl;
+	std::cout << "AForm custom constructor: " << this->getName() << std::endl;
 
 	try
 	{
 		if (this->getGradeExec() > 150 || this->getGradeSign() > 150)
 		{
-			throw Form::GradeTooLowException();
+			throw AForm::GradeTooLowException();
 		}
 		else if (this->getGradeExec() < 1 || this->getGradeSign() < 1)
 		{
-			throw Form::GradeTooHighException();
+			throw AForm::GradeTooHighException();
 		}
 	}
 	catch (const std::exception& except)
@@ -53,29 +53,29 @@ Form::Form(std::string _name, const int _grade_sign, const int _grade_exec) : \
 	}
 }
 
-Form::~Form()
+AForm::~AForm()
 {
-	std::cout << "Form destructor: " << this->getName() << std::endl;
+	std::cout << "AForm destructor: " << this->getName() << std::endl;
 }
 // canonical form end
 
 // getters
-std::string Form::getName() const
+std::string AForm::getName() const
 {
 	return(this->_name);
 }
 
-bool Form::getSigning() const
+bool AForm::getSigning() const
 {
 	return(this->_signed);
 }
 
-int Form::getGradeSign() const
+int AForm::getGradeSign() const
 {
 	return(this->_grade_sign);
 }
 
-int Form::getGradeExec() const
+int AForm::getGradeExec() const
 {
 	return(this->_grade_exec);
 }
@@ -83,13 +83,13 @@ int Form::getGradeExec() const
 
 // functions
 
-void Form::beSigned(Bureaucrat& bur)
+void AForm::beSigned(Bureaucrat& bur)
 {
 	// try
 	// {
 		if (bur.getGrade() > this->getGradeSign())
 		{
-			throw Form::GradeTooLowException();
+			throw AForm::GradeTooLowException();
 		}
 		else
 		{
@@ -105,12 +105,11 @@ void Form::beSigned(Bureaucrat& bur)
 }
 
 // << overloading
-std::ostream& operator<<(std::ostream& COUT, Form& obj)
+std::ostream& operator<<(std::ostream& COUT, const AForm& obj)
 {
-	std::cout << "Name of form: " << obj.getName() << std::endl;
-	std::cout << "Status of signing: " << obj.getSigning() << std::endl; 
+	std::cout << "Name of Aform: " << obj.getName() << std::endl;
+	std::cout << "Status of signing(0 no, 1yes): " << obj.getSigning() << std::endl; 
 	std::cout << "_grade_sign: " << obj.getGradeSign() << std::endl;
 	std::cout << "_grade_exec: " << obj.getGradeExec() << std::endl;
-	
 	return(COUT);
 }
