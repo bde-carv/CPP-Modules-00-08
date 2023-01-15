@@ -6,7 +6,7 @@
 /*   By: bde-carv <bde-carv@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 16:46:18 by bde-carv          #+#    #+#             */
-/*   Updated: 2023/01/14 18:57:11 by bde-carv         ###   ########.fr       */
+/*   Updated: 2023/01/14 20:56:59 by bde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 									
 			std::string filename = this->_target + "_shrubbery";
 			std::fstream myFile;
-			myFile.open(filename, std::ios::out); // writemode into file and create if not existent
+			myFile.open(filename, std::ios::out); // ios::out :mode for writing into file and create if not existent
 			if (myFile.is_open())
 			{
 				myFile << tree;
@@ -88,7 +88,6 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 			}
 			else
 				std::cout << "file not open\n";
-			
 		}
 	
 }
