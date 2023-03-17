@@ -1,3 +1,3 @@
 # CPP
 
-Introduction to C++
+C++ introduction course done at 42 school
